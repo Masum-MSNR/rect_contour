@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:rect_contour/models/rect_point.dart';
 
 import 'rect_contour_method_channel.dart';
 
@@ -23,7 +26,7 @@ abstract class RectContourPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<List<RectPoint>?> getPoints(Uint8List image) {
+    throw UnimplementedError('getPoints() has not been implemented.');
   }
 }
