@@ -28,19 +28,9 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
   }
 
-  pathToUint8List(String path) async {
-    final byteData = await rootBundle.load('assets/$path');
-
-    final file = File('${(await getTemporaryDirectory()).path}/$path');
-    await file.create(recursive: true);
-    await file.writeAsBytes(byteData.buffer
-        .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
-    return await file.readAsBytes();
-  }
-
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    RectContour().getPoints(await pathToUint8List('img2.jpg')).then((value) {
+    RectContour().getPointsAsset('assets/img2.jpg').then((value) {
       print(value);
     });
   }
